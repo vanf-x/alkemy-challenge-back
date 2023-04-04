@@ -6,10 +6,10 @@ public class PersonajeDTO {
     private Long id;
     private String imagen;
     private String nombre;
-    private int edad;
-    private double peso;
+    private Integer edad;
+    private Integer peso;
     private String historia;
-    private List<PeliculaDTO> peliculas;
+    private List<String> peliculas;
 
     public Long getId() {
         return id;
@@ -35,19 +35,19 @@ public class PersonajeDTO {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
-    public double getPeso() {
+    public Integer getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(Integer peso) {
         this.peso = peso;
     }
 
@@ -59,11 +59,11 @@ public class PersonajeDTO {
         this.historia = historia;
     }
 
-    public List<PeliculaDTO> getPeliculas() {
+    public List<String> getPeliculas() {
         return peliculas;
     }
 
-    public void setPeliculas(List<PeliculaDTO> peliculas) {
+    public void setPeliculas(List<String> peliculas) {
         this.peliculas = peliculas;
     }
 }

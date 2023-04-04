@@ -1,0 +1,58 @@
+PERSONAJE SERVICE IMPL
+
+   /* @Override
+    public List<PersonajeDTO> getAllPersonajes() {
+        List<PersonajeDTO> personajesDTO = new ArrayList<>();
+        List<Personaje> personajes = personajeRepository.findAll();
+
+        for(Personaje personaje : personajes){
+            PersonajeDTO personajeDTO = new PersonajeDTO();
+            personajeDTO.setId(personaje.getId());
+            personajeDTO.setImagen(personaje.getImagen());
+            personajeDTO.setNombre(personaje.getNombre());
+            personajeDTO.setEdad(personaje.getEdad());
+            personajeDTO.setPeso(personaje.getPeso());
+            personajeDTO.setHistoria(personaje.getHistoria());
+            List<String> peliculasDTO = new ArrayList<>();
+            for (Pelicula pelicula : personaje.getPeliculas()) {
+                PeliculaDTO peliculaDTO = new PeliculaDTO();
+                peliculaDTO.setId(pelicula.getId());
+                peliculaDTO.setImagen(pelicula.getImagen());
+                peliculaDTO.setTitulo(pelicula.getTitulo());
+                peliculaDTO.setFechaDeCreacion(pelicula.getFechaDeCreacion());
+                peliculaDTO.setCalificacion(pelicula.getCalificacion());
+                peliculasDTO.add(peliculaDTO.getTitulo());
+            }
+            personajeDTO.setPeliculas(peliculasDTO);
+            personajesDTO.add(personajeDTO);
+        }
+        return personajesDTO;
+    }*/
+
+    ----------------------------------
+    PERSONAJE SERVICE IMPL
+
+       /* @Override
+        public PersonajeDTO getPersonajeById(Long id) {
+            Personaje personaje = personajeRepository.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Personaje no encontrado"));
+            PersonajeDTO personajeDTO = new PersonajeDTO();
+            personajeDTO.setId(personaje.getId());
+            personajeDTO.setImagen(personaje.getImagen());
+            personajeDTO.setNombre(personaje.getNombre());
+            personajeDTO.setEdad(personaje.getEdad());
+            personajeDTO.setPeso(personaje.getPeso());
+            personajeDTO.setHistoria(personaje.getHistoria());
+            List<PeliculaDTO> peliculasDTO = new ArrayList<>();
+            for (Pelicula pelicula : personaje.getPeliculas()) {
+                PeliculaDTO peliculaDTO = new PeliculaDTO();
+                peliculaDTO.setId(pelicula.getId());
+                peliculaDTO.setImagen(pelicula.getImagen());
+                peliculaDTO.setTitulo(pelicula.getTitulo());
+                peliculaDTO.setFechaDeCreacion(pelicula.getFechaDeCreacion());
+                peliculaDTO.setCalificacion(pelicula.getCalificacion());
+                peliculasDTO.add(peliculaDTO);
+            }
+            //personajeDTO.setPeliculas(peliculasDTO);
+            return personajeDTO;
+        }*/
