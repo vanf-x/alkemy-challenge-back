@@ -16,8 +16,8 @@ public class PeliculaDTO {
     private String titulo;
     private LocalDate fechaDeCreacion;
     private Integer calificacion;
-    private List<PersonajeDTO> personajes = new ArrayList<>();
-    private Genero genero;
+    private List<String> personajes = new ArrayList<>();
+    private String genero;
 
     public Long getId() {
         return id;
@@ -59,19 +59,19 @@ public class PeliculaDTO {
         this.calificacion = calificacion;
     }
 
-    public List<PersonajeDTO> getPersonajes() {
+    public List<String> getPersonajes() {
         return personajes;
     }
 
-    public void setPersonajes(List<PersonajeDTO> personajes) {
+    public void setPersonajes(List<String> personajes) {
         this.personajes = personajes;
     }
 
-    public Genero getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 }

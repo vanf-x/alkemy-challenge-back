@@ -8,9 +8,8 @@ import java.util.List;
 
 public interface PersonajeService {
 
-    ResponseEntity<List<PersonajeDTO>> getAllPersonajes();
-    public ResponseEntity<PersonajeDTO> getPersonajeById(Long id);
-    public ResponseEntity<PersonajeDTO> createPersonaje(PersonajeDTO personajeDTO);
-
-    public ResponseEntity<PersonajeDTO> deletePersonaje(Long id);
+     ResponseEntity<List<PersonajeDTO>> getAllPersonajes();
+     ResponseEntity<PersonajeDTO> getPersonajeById(Long id);
+     ResponseEntity<PersonajeDTO> createPersonaje(PersonajeDTO personajeDTO);
+     ResponseEntity<PersonajeDTO> deletePersonaje(Long id);
 }

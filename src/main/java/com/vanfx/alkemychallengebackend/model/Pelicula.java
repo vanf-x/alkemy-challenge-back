@@ -26,6 +26,14 @@ public class Pelicula {
     public Pelicula() {
     }
 
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
     public Long getId() {
         return id;
     }
