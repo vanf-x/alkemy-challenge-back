@@ -1,22 +1,13 @@
-package com.vanfx.alkemychallengebackend.model;
-
-import jakarta.persistence.*;
+package com.vanfx.alkemychallengebackend.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "genero")
-public class Genero {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class GeneroDTO {
     private Long id;
     private String nombre;
     private String imagen;
-    @OneToMany(mappedBy = "genero")
-    private List<Pelicula> peliculas = new ArrayList<>();
-
-    public Genero(){}
+    private List<String> peliculas = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -42,11 +33,11 @@ public class Genero {
         this.imagen = imagen;
     }
 
-    public List<Pelicula> getPeliculas() {
+    public List<String> getPeliculas() {
         return peliculas;
     }
 
-    public void setPeliculas(List<Pelicula> peliculas) {
+    public void setPeliculas(List<String> peliculas) {
         this.peliculas = peliculas;
     }
 }
