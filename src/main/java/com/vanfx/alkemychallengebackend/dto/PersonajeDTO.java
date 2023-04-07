@@ -1,5 +1,6 @@
 package com.vanfx.alkemychallengebackend.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonajeDTO {
@@ -9,7 +10,7 @@ public class PersonajeDTO {
     private Integer edad;
     private Integer peso;
     private String historia;
-    private List<String> peliculas;
+    private List<String> peliculas = new ArrayList<>();
 
     public Long getId() {
         return id;

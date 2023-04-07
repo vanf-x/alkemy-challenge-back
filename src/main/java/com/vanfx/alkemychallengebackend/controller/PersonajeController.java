@@ -1,16 +1,17 @@
 package com.vanfx.alkemychallengebackend.controller;
 
 import com.vanfx.alkemychallengebackend.dto.PersonajeDTO;
+import com.vanfx.alkemychallengebackend.model.Personaje;
 import com.vanfx.alkemychallengebackend.services.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1")
 public class PersonajeController {
 
@@ -18,12 +19,18 @@ public class PersonajeController {
     private PersonajeService personajeService;
 
     @GetMapping("/personajes")
-    public List<PersonajeDTO> getAllPersonajes(){
+    public ResponseEntity<List<PersonajeDTO>> getAllPersonajes() {
         return personajeService.getAllPersonajes();
     }
 
     @GetMapping("/personajes/{id}")
-    public PersonajeDTO getPErsonajeById(@PathVariable Long id){
+    public ResponseEntity<PersonajeDTO> getPersonajeById(@PathVariable Long id) {
         return personajeService.getPersonajeById(id);
+    }
+
+    @PostMapping("/personajes")
+    public ResponseEntity<PersonajeDTO> crearPersonaje(@RequestBody PersonajeDTO personajeDTO) {
+        ResponseEntity<PersonajeDTO> response = personajeService.createPersonaje(personajeDTO);
+        return response;
     }
 }

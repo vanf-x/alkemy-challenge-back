@@ -9,6 +9,8 @@ import com.vanfx.alkemychallengebackend.model.Personaje;
 import com.vanfx.alkemychallengebackend.repository.PersonajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,26 +26,35 @@ public class PersonajeServiceImpl implements PersonajeService {
     PersonajeRepository personajeRepository;
 
     @Override
-    public List<PersonajeDTO> getAllPersonajes() {
+    public ResponseEntity<List<PersonajeDTO>> getAllPersonajes() {
         List<PersonajeDTO> personajesDTO = new ArrayList<>();
         List<Personaje> personajes = personajeRepository.findAll();
         for (Personaje personaje : personajes) {
             personajesDTO.add(personajeMapper.toPersonajeDTO(personaje));
         }
-        return personajesDTO;
+        return ResponseEntity.ok(personajesDTO);
     }
 
     @Override
-    public PersonajeDTO getPersonajeById(Long id) {
+    public ResponseEntity<PersonajeDTO> getPersonajeById(Long id) {
         Personaje personaje = personajeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Personaje no encontrado"));
         PersonajeDTO personajeDTO = personajeMapper.toPersonajeDTO(personaje);
-        return personajeDTO;
+        return ResponseEntity.ok(personajeDTO);
     }
-
 
     @Override
-    public PersonajeDTO crearPersonaje(Personaje personaje) {
+    public ResponseEntity<PersonajeDTO> createPersonaje(PersonajeDTO personajeDTO) {
+        Personaje personaje = personajeMapper.toPersonaje(personajeDTO);
+        Personaje guardarPersonaje = personajeRepository.save(personaje);
+        PersonajeDTO personajeGuardadoDTO = personajeMapper.toPersonajeDTO(guardarPersonaje);
+        return ResponseEntity.status(HttpStatus.CREATED).body(personajeGuardadoDTO);
+    }
+
+    @Override
+    public ResponseEntity<PersonajeDTO> deletePersonaje(Long id) {
         return null;
     }
+
+
 }
