@@ -24,6 +24,7 @@ public class GeneroMapper {
         genero.setId(generoDTO.getId());
         genero.setNombre(generoDTO.getNombre());
         genero.setImagen(generoDTO.getImagen());
+        genero.setActivo(generoDTO.getActivo());
         List<Pelicula> peliculas = new ArrayList<>();
         for (String nombrePelicula : generoDTO.getPeliculas()) {
             Pelicula pelicula = peliculaRepository.findByTitulo(nombrePelicula);
@@ -38,6 +39,7 @@ public class GeneroMapper {
         generoDTO.setId(genero.getId());
         generoDTO.setNombre(genero.getNombre());
         generoDTO.setImagen(genero.getImagen());
+        generoDTO.setActivo(genero.getActivo());
         List<String> peliculas = new ArrayList<>();
         for (Pelicula pelicula : genero.getPeliculas()) {
             String nombrePelicula = pelicula.getTitulo();

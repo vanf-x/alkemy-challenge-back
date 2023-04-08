@@ -11,6 +11,15 @@ public class PersonajeDTO {
     private Integer peso;
     private String historia;
     private List<String> peliculas = new ArrayList<>();
+    private Boolean activo = true;
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 
     public Long getId() {
         return id;

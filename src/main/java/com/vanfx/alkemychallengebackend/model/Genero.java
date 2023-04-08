@@ -13,10 +13,20 @@ public class Genero {
     private Long id;
     private String nombre;
     private String imagen;
+    private Boolean activo = true;
     @OneToMany(mappedBy = "genero")
     private List<Pelicula> peliculas = new ArrayList<>();
 
-    public Genero(){}
+    public Genero() {
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 
     public Long getId() {
         return id;

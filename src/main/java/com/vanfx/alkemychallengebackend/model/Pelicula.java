@@ -15,6 +15,7 @@ public class Pelicula {
     private String imagen;
     private String titulo;
     private LocalDate fechaDeCreacion;
+    private Boolean activo = true;
     //se podría usar un enum por ser del 1 al 5, pero eso lo manejo desde el front.
     private Integer calificacion;
     @ManyToMany(mappedBy = "peliculas")
@@ -24,6 +25,14 @@ public class Pelicula {
     private Genero genero;
 
     public Pelicula() {
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
     public Genero getGenero() {

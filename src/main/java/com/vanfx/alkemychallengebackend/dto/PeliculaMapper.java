@@ -30,6 +30,7 @@ public class PeliculaMapper {
         pelicula.setTitulo(peliculaDTO.getTitulo());
         pelicula.setFechaDeCreacion(peliculaDTO.getFechaDeCreacion());
         pelicula.setCalificacion(peliculaDTO.getCalificacion());
+        pelicula.setActivo(peliculaDTO.getActivo());
         List<Personaje> personajes = new ArrayList<>();
         for (String nombrePersonaje : peliculaDTO.getPersonajes()) {
             Personaje personaje = personajeRepository.findByNombre(nombrePersonaje);
@@ -48,6 +49,7 @@ public class PeliculaMapper {
         peliculaDTO.setTitulo(pelicula.getTitulo());
         peliculaDTO.setFechaDeCreacion(pelicula.getFechaDeCreacion());
         peliculaDTO.setCalificacion(pelicula.getCalificacion());
+        peliculaDTO.setActivo(pelicula.getActivo());
         List<String> personajes = new ArrayList<>();
         for (Personaje personaje : pelicula.getPersonajes()) {
             String nombrePersonaje = personaje.getNombre();

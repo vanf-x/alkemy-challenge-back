@@ -1,6 +1,7 @@
 package com.vanfx.alkemychallengebackend.controller;
 
 import com.vanfx.alkemychallengebackend.dto.PersonajeDTO;
+import com.vanfx.alkemychallengebackend.helpers.MensajeResponse;
 import com.vanfx.alkemychallengebackend.model.Personaje;
 import com.vanfx.alkemychallengebackend.services.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,10 @@ public class PersonajeController {
     public ResponseEntity<PersonajeDTO> crearPersonaje(@RequestBody PersonajeDTO personajeDTO) {
         ResponseEntity<PersonajeDTO> response = personajeService.createPersonaje(personajeDTO);
         return response;
+    }
+
+    @DeleteMapping("/personajes/{id}")
+    public ResponseEntity<MensajeResponse> deletePersonaje(@PathVariable Long id) {
+        return personajeService.deletePersonaje(id);
     }
 }

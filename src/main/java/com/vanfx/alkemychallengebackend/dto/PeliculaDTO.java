@@ -18,6 +18,15 @@ public class PeliculaDTO {
     private Integer calificacion;
     private List<String> personajes = new ArrayList<>();
     private String genero;
+    private Boolean activo = true;
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 
     public Long getId() {
         return id;

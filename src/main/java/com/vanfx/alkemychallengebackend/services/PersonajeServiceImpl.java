@@ -4,6 +4,7 @@ import com.vanfx.alkemychallengebackend.dto.PeliculaDTO;
 import com.vanfx.alkemychallengebackend.dto.PersonajeDTO;
 import com.vanfx.alkemychallengebackend.dto.PersonajeMapper;
 import com.vanfx.alkemychallengebackend.exceptions.ResourceNotFoundException;
+import com.vanfx.alkemychallengebackend.helpers.MensajeResponse;
 import com.vanfx.alkemychallengebackend.model.Pelicula;
 import com.vanfx.alkemychallengebackend.model.Personaje;
 import com.vanfx.alkemychallengebackend.repository.PersonajeRepository;
@@ -30,7 +31,9 @@ public class PersonajeServiceImpl implements PersonajeService {
         List<PersonajeDTO> personajesDTO = new ArrayList<>();
         List<Personaje> personajes = personajeRepository.findAll();
         for (Personaje personaje : personajes) {
-            personajesDTO.add(personajeMapper.toPersonajeDTO(personaje));
+            if (personaje.isActivo()) {
+                personajesDTO.add(personajeMapper.toPersonajeDTO(personaje));
+            }
         }
         return ResponseEntity.ok(personajesDTO);
     }
@@ -43,6 +46,7 @@ public class PersonajeServiceImpl implements PersonajeService {
         return ResponseEntity.ok(personajeDTO);
     }
 
+
     @Override
     public ResponseEntity<PersonajeDTO> createPersonaje(PersonajeDTO personajeDTO) {
         Personaje personaje = personajeMapper.toPersonaje(personajeDTO);
@@ -52,8 +56,19 @@ public class PersonajeServiceImpl implements PersonajeService {
     }
 
     @Override
-    public ResponseEntity<PersonajeDTO> deletePersonaje(Long id) {
-        return null;
+    public ResponseEntity<MensajeResponse> deletePersonaje(Long id) {
+        Personaje personaje = personajeRepository.findById(id)
+                .orElse(null);
+        if (personaje == null) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new MensajeResponse("No se encontró el personaje solicitado"));
+        }
+        personaje.setActivo(false);
+        personajeRepository.save(personaje);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new MensajeResponse("Personaje borrado con éxito"));
     }
 
 

@@ -29,6 +29,7 @@ public class PersonajeMapper {
         personaje.setEdad(personajeDTO.getEdad());
         personaje.setPeso(personajeDTO.getPeso());
         personaje.setHistoria(personajeDTO.getHistoria());
+        personaje.setActivo(personajeDTO.getActivo());
         List<Pelicula> peliculas = new ArrayList<>();
         for (String nombrePelicula : personajeDTO.getPeliculas()) {
             Pelicula pelicula = peliculaRepository.findByTitulo(nombrePelicula);
@@ -46,6 +47,7 @@ public class PersonajeMapper {
         personajeDTO.setEdad(personaje.getEdad());
         personajeDTO.setPeso(personaje.getPeso());
         personajeDTO.setHistoria(personaje.getHistoria());
+        personajeDTO.setActivo(personaje.getActivo());
         List<String> peliculas = new ArrayList<>();
         for (Pelicula pelicula : personaje.getPeliculas()) {
             String nombrePelicula = pelicula.getTitulo();

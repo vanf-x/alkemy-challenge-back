@@ -16,13 +16,26 @@ public class Personaje {
     private Integer edad;
     private Integer peso;
     private String historia;
+    private Boolean activo = true;
     @ManyToMany
     @JoinTable(name = "personaje_pelicula",
             joinColumns = @JoinColumn(name = "personaje_id"),
             inverseJoinColumns = @JoinColumn(name = "pelicula_id"))
     private List<Pelicula> peliculas = new ArrayList<>();
 
+    public Boolean getActivo() {
+        return activo;
+    }
+
     public Personaje() {
+    }
+
+    public Boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
     public String getNombre() {

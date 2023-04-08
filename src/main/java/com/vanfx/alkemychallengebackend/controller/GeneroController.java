@@ -1,6 +1,7 @@
 package com.vanfx.alkemychallengebackend.controller;
 
 import com.vanfx.alkemychallengebackend.dto.GeneroDTO;
+import com.vanfx.alkemychallengebackend.helpers.MensajeResponse;
 import com.vanfx.alkemychallengebackend.services.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,5 +20,11 @@ public class GeneroController {
         ResponseEntity<GeneroDTO> response = generoService.createGenero(generoDTO);
         return response;
     }
+
+    @DeleteMapping("generos/{id}")
+    public ResponseEntity<MensajeResponse> deleteGenero(@PathVariable Long id) {
+        return generoService.deleteGenero(id);
+    }
+
 
 }
