@@ -13,4 +13,5 @@ public interface PersonajeService {
      ResponseEntity<PersonajeDTO> getPersonajeById(Long id);
      ResponseEntity<PersonajeDTO> createPersonaje(PersonajeDTO personajeDTO);
      ResponseEntity<MensajeResponse> deletePersonaje(Long id);
+     ResponseEntity<MensajeResponse> editPersonaje(Long id, PersonajeDTO personajeDTO);
 }

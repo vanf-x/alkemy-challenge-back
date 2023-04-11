@@ -37,4 +37,9 @@ public class PeliculaController {
     public ResponseEntity<MensajeResponse> deletePelicula(@PathVariable Long id) {
         return peliculaService.deletePelicula(id);
     }
+
+    @PutMapping("/peliculas/{id}")
+    public ResponseEntity<MensajeResponse> editPelicula(@RequestBody Long id, @RequestBody PeliculaDTO peliculaDTO) {
+        return peliculaService.editPelicula(id, peliculaDTO);
+    }
 }

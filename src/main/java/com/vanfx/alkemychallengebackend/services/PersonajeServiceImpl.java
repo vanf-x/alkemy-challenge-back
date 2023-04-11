@@ -71,5 +71,21 @@ public class PersonajeServiceImpl implements PersonajeService {
                 .body(new MensajeResponse("Personaje borrado con éxito"));
     }
 
+    @Override
+    public ResponseEntity<MensajeResponse> editPersonaje(Long id, PersonajeDTO personajeDTO) {
+        Personaje personaje = personajeRepository.findById(id)
+                .orElse(null);
+        if(personaje == null){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new MensajeResponse("No se encontró el personaje solicitado"));
+        }
+        personaje = personajeMapper.toPersonaje(personajeDTO);
+        personajeRepository.save(personaje);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new MensajeResponse("Personaje actualizado con éxito"));
+    }
+
 
 }

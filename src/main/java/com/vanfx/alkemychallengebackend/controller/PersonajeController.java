@@ -39,4 +39,9 @@ public class PersonajeController {
     public ResponseEntity<MensajeResponse> deletePersonaje(@PathVariable Long id) {
         return personajeService.deletePersonaje(id);
     }
+
+    @PutMapping("/personajes/{id}")
+    public ResponseEntity<MensajeResponse> editarPersonaje(@PathVariable Long id, @RequestBody PersonajeDTO personajeDTO){
+        return personajeService.editPersonaje(id, personajeDTO);
+    }
 }

@@ -70,4 +70,19 @@ public class PeliculaServiceImpl implements PeliculaService {
                 .status(HttpStatus.OK)
                 .body(new MensajeResponse("Película borrada con éxito"));
     }
+
+    @Override
+    public ResponseEntity<MensajeResponse> editPelicula(Long id, PeliculaDTO peliculaDTO) {
+        Pelicula pelicula = peliculaRepository.findById(id).orElse(null);
+        if(pelicula == null){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new MensajeResponse("No se encontró la película solicitada"));
+        }
+        pelicula = peliculaMapper.toPelicula(peliculaDTO);
+        peliculaRepository.save(pelicula);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new MensajeResponse("Película editada con éxito"));
+    }
 }

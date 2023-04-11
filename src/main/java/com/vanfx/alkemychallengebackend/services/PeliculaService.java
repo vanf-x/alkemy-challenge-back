@@ -11,4 +11,5 @@ public interface PeliculaService {
     ResponseEntity<PeliculaDTO> getPeliculaById(Long id);
     ResponseEntity<PeliculaDTO> createPelicula(PeliculaDTO peliculaDTO);
     ResponseEntity<MensajeResponse> deletePelicula(Long id);
+    ResponseEntity<MensajeResponse> editPelicula(Long id, PeliculaDTO peliculaDTO);
 }

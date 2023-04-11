@@ -12,18 +12,20 @@ insert into genero(id, activo, imagen, nombre)
 values(4, 1, null, 'Suspenso');
 insert into genero(id, activo, imagen, nombre)
 values(5, 0, null, 'Drama');
+insert into genero(id, activo, imagen, nombre)
+values(6, 0, null, 'Otro');
 
 select * from pelicula;
 insert into pelicula(id, activo, calificacion, fecha_de_creacion, imagen, titulo, genero_id)
-values(1, 1, 3, '1998-04-21', null, 'Matrix', 5);
+values(1, 1, 3, '1998-04-21', null, 'Viaje en bondi al centro de la tierra', 5);
 insert into pelicula(id, activo, calificacion, fecha_de_creacion, imagen, titulo, genero_id)
-values(2, 1, 4, '2001-08-14', null, 'El exorcista', 1);
+values(2, 1, 4, '2001-08-14', null, 'Exorcismo en Florencio Varela', 1);
 insert into pelicula(id, activo, calificacion, fecha_de_creacion, imagen, titulo, genero_id)
-values(3, 1, 5, '2023-04-21', null, 'Pinocho', 4);
+values(3, 1, 5, '2023-04-21', null, 'Pinocho II viaje a Isidro Casanova', 4);
 insert into pelicula(id, activo, calificacion, fecha_de_creacion, imagen, titulo, genero_id)
 values(4, 1, 1, '1965-12-01', null, 'La naranja mecánica', 2);
 insert into pelicula(id, activo, calificacion, fecha_de_creacion, imagen, titulo, genero_id)
-values(5, 0, 2, '1988-12-25', null, 'Bañeros locos', 3);
+values(5, 0, 2, '1988-12-25', null, 'Mickey y Pluto en la salada', 3);
 
 select * from personaje;
 select * from personaje;
